@@ -9,6 +9,7 @@
 [node name="Player" parent="." instance=ExtResource("1_jxrsq")]
 explosion_scene = ExtResource("2_rl6bc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Player"]
 visible = false
+scale = Vector2(0.559289, 0.44585)
 texture = ExtResource("3_uharf")
