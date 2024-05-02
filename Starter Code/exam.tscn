@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://bunyohpobvu8b"]
+[gd_scene load_steps=6 format=3 uid="uid://bunyohpobvu8b"]
+
+[ext_resource type="PackedScene" uid="uid://b1ertcqfsoiy7" path="res://Ground.tscn" id="1_whtoa"]
+[ext_resource type="PackedScene" uid="uid://b3jsipurtce7e" path="res://Sprite.tscn" id="2_gx7yd"]
+[ext_resource type="PackedScene" uid="uid://w04rowcrnqgc" path="res://Hslider.tscn" id="3_bapvw"]
+[ext_resource type="PackedScene" uid="uid://dmsxk77yrqqk7" path="res://Falling blocks.tscn" id="4_3hyx5"]
+[ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="5_0uhf0"]
 
 [node name="root" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_whtoa")]
+position = Vector2(540, 1042)
+
+[node name="Sprite2D" parent="." instance=ExtResource("2_gx7yd")]
+
+[node name="Control" parent="." instance=ExtResource("3_bapvw")]
+
+[node name="Player" parent="." instance=ExtResource("4_3hyx5")]
+position = Vector2(522, 185)
+explosion_scene = ExtResource("5_0uhf0")

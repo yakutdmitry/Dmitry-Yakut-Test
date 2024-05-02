@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://w04rowcrnqgc"]
+
+[ext_resource type="Script" path="res://GridContainer.gd" id="1_nue4y"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 213.0
+offset_right = 40.0
+offset_bottom = 253.0
+scale = Vector2(6.48783, 1.72096)
+script = ExtResource("1_nue4y")
+
+[node name="HSlider" type="HSlider" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+max_value = 15.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 213.0
+offset_right = 300.0
+offset_bottom = 251.0
+scale = Vector2(2.55455, 1.83267)
+text = "0"
+
+[connection signal="value_changed" from="GridContainer/HSlider" to="GridContainer" method="_on_h_slider_value_changed"]
