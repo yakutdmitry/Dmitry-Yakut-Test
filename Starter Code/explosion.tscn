@@ -31,11 +31,11 @@ scale_curve = SubResource("CurveTexture_880us")
 alpha_curve = SubResource("CurveTexture_ci5xv")
 
 [node name="explosion" type="GPUParticles2D"]
-modulate = Color(0, 1, 1, 1)
+modulate = Color(0.905882, 0, 0.356863, 1)
 emitting = false
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_8i2hp")
-lifetime = 5.0
+lifetime = 2.5
 one_shot = true
 explosiveness = 1.0
 

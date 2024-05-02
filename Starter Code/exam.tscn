@@ -55,7 +55,7 @@ blocks = ExtResource("4_wp15d")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
-max_value = 15.0
+max_value = 25.0
 
 [node name="pivot" type="Node2D" parent="."]
 position = Vector2(512, 512)
