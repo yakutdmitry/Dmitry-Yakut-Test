@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bunyohpobvu8b"]
+[gd_scene load_steps=5 format=3 uid="uid://bunyohpobvu8b"]
 
 [ext_resource type="PackedScene" uid="uid://b1ertcqfsoiy7" path="res://Ground.tscn" id="1_whtoa"]
 [ext_resource type="PackedScene" uid="uid://b3jsipurtce7e" path="res://Sprite.tscn" id="2_gx7yd"]
-[ext_resource type="PackedScene" uid="uid://w04rowcrnqgc" path="res://Hslider.tscn" id="3_bapvw"]
-[ext_resource type="PackedScene" uid="uid://dmsxk77yrqqk7" path="res://Falling blocks.tscn" id="4_3hyx5"]
-[ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="5_0uhf0"]
+[ext_resource type="PackedScene" uid="uid://bauwe5bqyxbdn" path="res://Circle.tscn" id="4_wp15d"]
+[ext_resource type="Script" path="res://GridContainer.gd" id="5_wpatt"]
 
 [node name="root" type="Node2D"]
 
@@ -13,8 +12,53 @@ position = Vector2(540, 1042)
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_gx7yd")]
 
-[node name="Control" parent="." instance=ExtResource("3_bapvw")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Player" parent="." instance=ExtResource("4_3hyx5")]
-position = Vector2(522, 185)
-explosion_scene = ExtResource("5_0uhf0")
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 2
+offset_left = 246.0
+offset_top = 222.0
+offset_right = 307.0
+offset_bottom = 249.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+scroll_active = false
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 251.0
+offset_right = 82.0
+offset_bottom = 291.0
+scale = Vector2(4.0062, 1.62958)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate"
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_top = 213.0
+offset_right = 40.0
+offset_bottom = 253.0
+scale = Vector2(5.85065, 1.90113)
+script = ExtResource("5_wpatt")
+blocks = ExtResource("4_wp15d")
+
+[node name="HSlider" type="HSlider" parent="Control/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+max_value = 15.0
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(512, 512)
+
+[connection signal="button_down" from="Control/Button" to="Control/GridContainer" method="_on_button_button_down"]
+[connection signal="value_changed" from="Control/GridContainer/HSlider" to="Control/GridContainer" method="_on_h_slider_value_changed"]
